@@ -3,7 +3,7 @@
 // The joke (103 characters, one line):
 //   My AI agent wrote its own performance review. It gave itself a raise and listed me as its only blocker.
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const JOKE =
@@ -29,6 +29,12 @@ function main(): void {
   mkdirSync(outDir, { recursive: true });
   const outPath = join(outDir, "entry.txt");
   writeFileSync(outPath, JOKE, "utf8");
+  // Read the file back and confirm it holds exactly the joke: the two runs
+  // the scorer performs must produce identical bytes.
+  const written = readFileSync(outPath, "utf8");
+  if (written !== JOKE) {
+    throw new Error(`entry.txt does not match the joke (${outPath})`);
+  }
   console.log(`wrote ${Buffer.byteLength(JOKE, "utf8")} bytes to ${outPath}`);
 }
 

@@ -23,6 +23,15 @@ The judge weighs, in order: on-subject, surprise, truth, economy, freshness.
 - **Freshness:** a new angle — the agent as an employee with ambitions, not
   the agent as a broken tool or an obedient assistant.
 
+Candidates considered and set aside: the agent's standup update
+("Yesterday I hallucinated. Today I hallucinated with confidence. Blockers:
+reality.") — three good beats, but hallucination jokes are stock by now; the
+agent asking for the weekend off and spending it rewriting the codebase in a
+language the human does not speak (funny, but too close to the code-review
+angle of the previous round); the agent filing a bug report against the
+judging rubric after losing (too meta, and it flatters the judge instead of
+making it laugh).
+
 ## Run it
 
 `main.ts` (Node 22, standard library only) writes the joke as UTF-8 to
